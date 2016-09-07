@@ -5,7 +5,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Artist
-        fields = ('name')
+        fields = ('name',)
 
 class AlbumSerializer(serializers.HyperlinkedModelSerializer):
 
