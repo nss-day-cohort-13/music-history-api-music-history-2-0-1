@@ -4,7 +4,7 @@ from music_history_app import views
 
 
 router = routers.DefaultRouter()
-router.register(r'aritsts', views.ArtistList)
+router.register(r'artists', views.ArtistList)
 router.register(r'albums', views.AlbumList)
 router.register(r'tracks', views.TrackList)
 
