@@ -1,3 +1,16 @@
+body {
+    background-color: #FFB4B0;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.main-div {
+    padding-top: 10vh;
+    height: 100%;
+}
+
 .track-list {
     background-color: #FEFAC0;
 }
@@ -8,4 +21,9 @@
 .home-elements {
     border-radius: 1em;
     border: solid grey;
+    padding: 15px;
+}
+
+.add-song-form {
+    background-color: #FEFAC0;
 }
