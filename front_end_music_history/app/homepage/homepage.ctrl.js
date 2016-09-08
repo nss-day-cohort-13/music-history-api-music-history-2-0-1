@@ -12,9 +12,24 @@ angular.module("MusicHistory2")
                 .then(
                     res => {
                         home.apiRoot = res;
+
+                        $http.get(res.artists)
+                            .then(artistRes => home.artists = artistRes.data)
+
+                        $http.get(res.albums)
+                            .then(albumRes => home.albums = albumRes.data)
+
+                        $http.get(res.tracks)
+                            .then(trackRes => home.tracks = trackRes.data)
+
                         $timeout();
                  },
                     err => console.log("error", err)
-                );
+                )
+                // .then(
+                //     $http.get(home.apiRoot.artists)
+                //         .then(res => {home.artists = res.data;
+                //             $timeout()})
+                // )
         }
     ]);
