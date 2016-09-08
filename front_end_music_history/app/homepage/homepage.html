@@ -1,15 +1,13 @@
 <h1>Hello World</h1>
-<h2>{{ home.title }}</h2>
-<p>{{ home.apiRoot }}</p>
 
-<div ng-repeat=" artist in home.artists">
-    <p>{{ artist.name }}</p>
-</div>
+<div ng-repeat="track in home.tracks">
+    <h1>{{ track.name }}</h1>
 
-<div ng-repeat=" album in home.albums">
-    <p>{{ album.name }}</p>
-</div>
+    <div ng-repeat="album in home.albums" ng-if="track.album == album.url">
+        <h4>Album: {{ album.name }}</h4>
 
-<div ng-repeat=" track in home.tracks">
-    <p>{{ track.name }}</p>
+        <div ng-repeat="artist in home.artists" ng-if="album.artist == artist.url">
+            <h4>Artist: {{ artist.name }}</h4>
+        </div>
+    </div>
 </div>
