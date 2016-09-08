@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="col-sm-4">
+        <div class="col-xs-12">
+            <label for="artistFilter">Artist:</label>
+            <select name="artistFilter"
+                    ng-model="artistFilter"
+                    ng-options="artist.name for artist in home.artists">
+                <option value=""></option>}
+            </select>
+        </div>
+
+        <div class="col-xs-12">
+            <label for="albumFilter">Album:</label>
+            <select name="albumFilter" ng-model="albumFilter" ng-options="album.name for album in home.albums">
+                <option value=""></option>}
+            </select>
+        </div>
+    </div>
+
+    <div class="col-sm-8">
+        <div ng-repeat="track in home.tracks">
+
+            <div ng-repeat="album in home.albums | filter: albumFilter || undefined" ng-if="track.album == album.url">
+
+                <div ng-repeat="artist in home.artists | filter: artistFilter || undefined" ng-if="album.artist == artist.url">
+                        <h1>{{ track.name }}</h1>
+                        <h4>Artist: {{ artist.name }} | Album: {{album.name }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
