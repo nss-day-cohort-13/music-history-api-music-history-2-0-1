@@ -33,6 +33,7 @@
                 <div ng-repeat="artist in home.artists | filter: artistFilter || undefined" ng-if="album.artist == artist.url">
                         <h1>{{ track.name }}</h1>
                         <h4>Artist: {{ artist.name }} | Album: {{album.name }}</h4>
+                        <button class="btn" ng-click="home.deleteTrack(track)">Delete</button>
                 </div>
             </div>
         </div>
