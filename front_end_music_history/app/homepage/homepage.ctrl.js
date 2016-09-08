@@ -8,6 +8,14 @@ angular.module("MusicHistory2")
 
             home.title = "I'm the home page";
 
+            home.deleteTrack = function (track) {
+                $http.delete(track.url);
+
+                // remove track from being displayed
+                index = home.tracks.indexOf(track);
+                home.tracks.splice(index, 1);
+            };
+
             RootFactory.getApiRoot()
                 .then(
                     res => {
