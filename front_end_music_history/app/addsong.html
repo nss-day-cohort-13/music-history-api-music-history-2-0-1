@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <form class=""  method="post">
+        <div class="form-group">
+          <label for="newArtist">Add New Artist</label><input class="form-control" type="text" name="newArtist" value="" ng-model="add.newArtistName" placeholder="Artist Name">
+          <input type="button" name="name" value="Submit" ng-click="add.newArtist()" class="btn btn-primary">
+        </div>
+      </form>
+
+      <form class="" method="post">
+        <div class="form-group">
+          <label for="newAlbum">Add New Album</label><input class="form-control" type="text" name="name" value="" ng-model="add.newAlbumName" placeholder="Album Name">
+          <label for="albumArtist">Album Artist</label>
+          <select class="form-control" name="albumArtist" ng-model="add.newAlbumArtist">
+            <option ng-repeat="artist in add.artistList" value="artist.id" ng-value="artist.id">{{artist.name}}</option>
+          </select>
+          <input type="button" name="name" value="Submit" ng-click="add.newAlbum()" class="btn btn-primary">
+        </div>
+      </form>
+
+      <form class="" method="post">
+        <div class="form-group">
+          <label for="track">Add New Track</label><input class="form-control" type="text" name="track" ng-model="add.newTrackName" placeholder="Track Name">
+          <label for="trackAlbum">Album</label>
+          <select class="form-control" name="trackAlbum" ng-model="add.newTrackAlbum">
+            <option ng-repeat="album in add.albumList" value="album.id" ng-value="album.id">{{album.name}}</option>
+          </select>
+          <input type="button" name="name" value="Submit" ng-click="add.newTrack()" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
