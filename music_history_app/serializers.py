@@ -5,21 +5,17 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Artist
-        fields = ('name',)
+        fields = ('id', 'url', 'name')
 
 class AlbumSerializer(serializers.HyperlinkedModelSerializer):
 
-    artist = ArtistSerializer(many=True, read_only=True)
-
     class Meta:
         model = Album
-        fields = ('name', 'artist')
+        fields = ('id', 'url', 'name', 'artist')
 
 
 class TrackSerializer(serializers.HyperlinkedModelSerializer):
 
-    album = AlbumSerializer(many=True, read_only=True)
-
     class Meta:
         model = Track
-        fields = ('name', 'album')
+        fields = ('id', 'url','name', 'album', 'artist')
