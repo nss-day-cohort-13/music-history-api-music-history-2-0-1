@@ -1,1 +1,1 @@
-angular.module('Zoolandia', ['ngRoute']);
+angular.module('MusicHistory2', ['ngRoute']);
