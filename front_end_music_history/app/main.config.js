@@ -3,6 +3,7 @@ angular.module("MusicHistory2")
         $routeProvider
             .when("/", {
                 controller: "HomepageCtrl",
+                controllerAs: 'home',
                 templateUrl: "app/homepage/homepage.html"
             });
     });

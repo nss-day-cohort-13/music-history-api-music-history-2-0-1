@@ -1,4 +1,4 @@
-angular.module('Zoolandia', ['ngRoute'])
+angular.module('MusicHistory2', ['ngRoute'])
 
     .factory('RootFactory', ($http) => {
         let apiRoot = null;
