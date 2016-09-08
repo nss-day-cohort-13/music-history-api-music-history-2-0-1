@@ -1,23 +1,31 @@
 <div class="container">
-    <div class="col-sm-4">
+    <form class=" form-horizontal col-sm-3 col-sm-offset-1 filters home-elements">
         <div class="col-xs-12">
-            <label for="artistFilter">Artist:</label>
-            <select name="artistFilter"
-                    ng-model="artistFilter"
-                    ng-options="artist.name for artist in home.artists">
-                <option value=""></option>}
-            </select>
+            <div class="form-group">
+                <label class="control-label" for="artistFilter">Artist:</label>
+                <select name="artistFilter"
+                        ng-model="artistFilter"
+                        ng-options="artist.name for artist in home.artists"
+                        class="form-control">
+                    <option value=""></option>}
+                </select>
+            </div>
         </div>
 
         <div class="col-xs-12">
-            <label for="albumFilter">Album:</label>
-            <select name="albumFilter" ng-model="albumFilter" ng-options="album.name for album in home.albums">
-                <option value=""></option>}
-            </select>
+            <div class="form-group">
+                <label class="control-label" for="albumFilter">Album:</label>
+                <select name="albumFilter"
+                        ng-model="albumFilter"
+                        ng-options="album.name for album in home.albums"
+                        class="form-control">
+                    <option value=""></option>}
+                </select>
+                </div>
         </div>
-    </div>
+    </form>
 
-    <div class="col-sm-8">
+    <div class="col-sm-6 col-sm-offset-1 track-list home-elements">
         <div ng-repeat="track in home.tracks">
 
             <div ng-repeat="album in home.albums | filter: albumFilter || undefined" ng-if="track.album == album.url">
