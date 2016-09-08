@@ -1,14 +1,20 @@
 <div class="container">
     <div class="col-sm-4">
-        <label for="artistFilter">Artist:</label>
-        <select name="artistFilter" ng-model="artistFilter" ng-options="artist.name for artist in home.artists">
-            <option value=""></option>}
-        </select>
+        <div class="col-xs-12">
+            <label for="artistFilter">Artist:</label>
+            <select name="artistFilter"
+                    ng-model="artistFilter"
+                    ng-options="artist.name for artist in home.artists">
+                <option value=""></option>}
+            </select>
+        </div>
 
-        <label for="albumFilter">Album:</label>
-        <select name="albumFilter" ng-model="albumFilter" ng-options="album.name for album in home.albums">
-            <option value=""></option>}
-        </select>
+        <div class="col-xs-12">
+            <label for="albumFilter">Album:</label>
+            <select name="albumFilter" ng-model="albumFilter" ng-options="album.name for album in home.albums">
+                <option value=""></option>}
+            </select>
+        </div>
     </div>
 
     <div class="col-sm-8">
