@@ -16,6 +16,43 @@ angular.module("MusicHistory2")
                 home.tracks.splice(index, 1);
             };
 
+            home.editToggle = (track, album, artist) => {
+
+              home.editing = true;
+              home.editTrackName = track.name;
+              home.editAlbumName = album.name;
+              home.editArtistName = artist.name;
+              home.editTrackId = track.id;
+              home.editAlbumId = album.id;
+              home.editArtistId = artist.id
+            }
+
+            home.edit = (track, album, artist) => {
+              RootFactory.getApiRoot()
+                  .then(
+                      res => {
+                        $http.patch(`${res.artists}${artist}/`, {'name': home.editArtistName})
+                          .then((response) => {
+                            $http.get(res.artists)
+                              .then(artistRes => home.artists = artistRes.data);
+                            })
+
+                        $http.patch(`${res.albums}${album}/`, {'name': home.editAlbumName})
+                          .then(response => {
+                            $http.get(res.albums)
+                                .then(albumRes => home.albums = albumRes.data);
+                          })
+                          
+                        $http.patch(`${res.tracks}${track}/`, {'name': home.editTrackName})
+                          .then(response => {
+                            $http.get(res.tracks)
+                                .then(trackRes => home.tracks = trackRes.data);
+                          })
+                        })
+              home.editing = false;
+            }
+
+
             RootFactory.getApiRoot()
                 .then(
                     res => {
