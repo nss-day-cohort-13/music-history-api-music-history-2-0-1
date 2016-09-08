@@ -14,25 +14,17 @@ angular.module("MusicHistory2")
                         home.apiRoot = res;
 
                         $http.get(res.artists)
-                            .then(artistRes => {home.artists = artistRes.data;
-                                console.log("artists", artistRes.data)})
+                            .then(artistRes => home.artists = artistRes.data);
 
                         $http.get(res.albums)
-                            .then(albumRes => {home.albums = albumRes.data;
-                                console.log("albums", albumRes.data);})
+                            .then(albumRes => home.albums = albumRes.data);
 
                         $http.get(res.tracks)
-                            .then(trackRes => {home.tracks = trackRes.data;
-                                console.log("tracks", trackRes.data);})
+                            .then(trackRes => home.tracks = trackRes.data);
 
                         $timeout();
                  },
                     err => console.log("error", err)
-                )
-                // .then(
-                //     $http.get(home.apiRoot.artists)
-                //         .then(res => {home.artists = res.data;
-                //             $timeout()})
-                // )
+                );
         }
     ]);

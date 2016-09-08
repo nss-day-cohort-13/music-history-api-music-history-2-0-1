@@ -9,15 +9,14 @@
         <select name="albumFilter" ng-model="albumFilter" ng-options="album.name for album in home.albums">
             <option value=""></option>}
         </select>
-
     </div>
 
     <div class="col-sm-8">
         <div ng-repeat="track in home.tracks">
 
-            <div ng-repeat="album in home.albums | filter: albumFilter" ng-if="track.album == album.url">
+            <div ng-repeat="album in home.albums | filter: albumFilter || undefined" ng-if="track.album == album.url">
 
-                <div ng-repeat="artist in home.artists | filter: artistFilter" ng-if="album.artist == artist.url">
+                <div ng-repeat="artist in home.artists | filter: artistFilter || undefined" ng-if="album.artist == artist.url">
                         <h1>{{ track.name }}</h1>
                         <h4>Artist: {{ artist.name }} | Album: {{album.name }}</h4>
                 </div>
