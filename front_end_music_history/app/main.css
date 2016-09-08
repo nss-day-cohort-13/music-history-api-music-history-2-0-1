@@ -1,12 +1,9 @@
-body {
-    background-color: #6C9FDF;
+.track-list {
+    background-color: #FEFAC0;
 }
 
-.track-list {
-    background-color: #DF736C;
-}
 .filters {
-    background-color: #DCE730;
+    background-color: #4DD7FA;
 }
 
 .home-elements {
