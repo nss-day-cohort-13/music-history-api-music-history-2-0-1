@@ -11,11 +11,11 @@ class AlbumSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Album
-        fields = ('id', 'url', 'name', 'artist')
+        fields = ('id', 'url', 'name','artist')
 
 
 class TrackSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Track
-        fields = ('id', 'url','name', 'album', 'artist')
+        fields = ('id', 'url','name','album')
