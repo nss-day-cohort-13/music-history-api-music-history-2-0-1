@@ -8,8 +8,11 @@ angular.module("MusicHistory2")
 
             home.title = "I'm the home page";
 
+            let logError = (err) => console.log("error", err);
+
             home.deleteTrack = function (track) {
-                $http.delete(track.url);
+                $http.delete(track.url)
+                    .error(logError);
 
                 // remove track from being displayed
                 index = home.tracks.indexOf(track);
@@ -19,20 +22,25 @@ angular.module("MusicHistory2")
             RootFactory.getApiRoot()
                 .then(
                     res => {
-                        home.apiRoot = res;
 
                         $http.get(res.artists)
-                            .then(artistRes => home.artists = artistRes.data);
+                            .then(artistRes => home.artists = artistRes.data,
+                                  logError
+                            );
 
                         $http.get(res.albums)
-                            .then(albumRes => home.albums = albumRes.data);
+                            .then(albumRes => home.albums = albumRes.data,
+                                  logError
+                            );
 
                         $http.get(res.tracks)
-                            .then(trackRes => home.tracks = trackRes.data);
+                            .then(trackRes => home.tracks = trackRes.data,
+                                  logError
+                            );
 
                         $timeout();
                  },
-                    err => console.log("error", err)
+                    logError
                 );
         }
     ]);
